@@ -13,16 +13,14 @@ weatherForm.addEventListener("submit", (e) => {
   forecast.innerHTML = `<img class="loader" src="./img/loading.gif" alt="Loading...">`;
   place.innerText = "";
 
-  fetch(`http://localhost:3000/weather?location=${location}`).then(
-    (response) => {
-      response.json().then((data) => {
-        if (data.error) {
-          forecast.innerText = data.error;
-        } else {
-          forecast.innerText = data.forecast;
-          place.innerText = data.location;
-        }
-      });
-    }
-  );
+  fetch(`/weather?location=${location}`).then((response) => {
+    response.json().then((data) => {
+      if (data.error) {
+        forecast.innerText = data.error;
+      } else {
+        forecast.innerText = data.forecast;
+        place.innerText = data.location;
+      }
+    });
+  });
 });
