@@ -19,6 +19,8 @@ const forecast = (latitude, longitude, callback) => {
         body.current.temperature +
         " degrees out. The cloud cover is " +
         body.current.cloudcover +
+        "% and the humidity is " +
+        body.current.humidity +
         "%.";
       callback(undefined, str);
     }
